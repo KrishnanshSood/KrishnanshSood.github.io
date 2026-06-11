@@ -302,14 +302,14 @@ section{padding:88px 0}
 .hire-box p{color:var(--ink-soft);max-width:48ch;margin-bottom:26px}
 .contact-list{list-style:none;display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper)}
 .contact-list a{
-  display:flex;justify-content:space-between;align-items:center;gap:14px;
-  text-decoration:none;padding:17px 20px;border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  text-decoration:none;padding:16px 20px;border-bottom:1px solid var(--line);
   font-family:var(--mono);font-size:13px;transition:background .15s,padding-left .15s;
 }
 .contact-list li:last-child a{border-bottom:none}
 .contact-list a:hover{background:var(--verified-soft);padding-left:26px}
-.contact-list .k{color:var(--ink-faint);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
-.contact-list .v{font-weight:500}
+.contact-list .k{color:var(--ink-faint);font-size:11px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.contact-list .v{font-weight:500;font-size:12px;text-align:right;overflow-wrap:anywhere;min-width:0}
 .hire-stamp{
   position:absolute;top:-34px;right:-34px;width:170px;height:170px;border-radius:50%;
   border:2.5px dashed var(--bronze);opacity:.28;transform:rotate(14deg);pointer-events:none;
