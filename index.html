@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Krishnansh Sood — Evidence-grade engineering</title>
+<meta name="description" content="Krishnansh Sood builds AI/ML and FinTech systems that prove their own claims. Portfolio with execution-grounded evidence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F1F3EF;
+  --paper-deep:#E6EAE4;
+  --ink:#131C26;
+  --ink-soft:#3D4854;
+  --ink-faint:#6B7682;
+  --line:#C7CDC4;
+  --verified:#0E7B52;
+  --verified-soft:#E2EFE8;
+  --bronze:#A8651E;
+  --bronze-deep:#8A5217;
+  --panel:#0F1722;
+  --panel-line:#243140;
+  --panel-text:#C7D3DE;
+  --panel-dim:#5E7184;
+  --display:'Archivo',system-ui,sans-serif;
+  --serif:'Source Serif 4',Georgia,serif;
+  --mono:'IBM Plex Mono','SF Mono',Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--bronze);color:#fff}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--bronze);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono)}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--bronze-deep);display:flex;align-items:center;gap:10px;font-weight:500;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--bronze)}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{font-family:var(--mono);font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.02em}
+.brand b{color:var(--verified)}
+.nav-links{display:flex;gap:26px;align-items:center;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:12px;text-decoration:none;color:var(--ink-soft);letter-spacing:.05em;transition:color .15s}
+.nav-links a:hover{color:var(--bronze-deep)}
+.status-pill{
+  font-family:var(--mono);font-size:11px;letter-spacing:.04em;
+  background:var(--verified-soft);color:var(--verified);
+  border:1px solid color-mix(in srgb,var(--verified) 35%,transparent);
+  padding:5px 11px;border-radius:99px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+}
+.status-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--verified);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(14,123,82,.45)}55%{box-shadow:0 0 0 6px rgba(14,123,82,0)}}
+@media(max-width:880px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:84px 0 70px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr;gap:44px}}
+.hero h1{
+  font-family:var(--display);
+  font-variation-settings:"wdth" 112;
+  font-weight:840;
+  font-size:clamp(40px,5.4vw,68px);
+  line-height:1.0;
+  letter-spacing:-.022em;
+  text-transform:uppercase;
+  margin:22px 0 20px;
+}
+.hero h1 .strike{
+  position:relative;color:var(--ink-faint);white-space:nowrap;
+}
+.hero h1 .strike::after{
+  content:"";position:absolute;left:-2%;right:-2%;top:54%;height:4px;background:var(--bronze);
+  transform:rotate(-1.6deg);border-radius:2px;
+}
+.hero h1 .verify{color:var(--verified)}
+.hero p.lede{font-size:19px;color:var(--ink-soft);max-width:46ch;margin-bottom:14px}
+.hero p.lede b{color:var(--ink)}
+.hero .sub{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);margin-bottom:30px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.03em;
+  padding:13px 22px;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--ink);transition:transform .15s,box-shadow .15s,background .15s;cursor:pointer;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{box-shadow:0 8px 22px -8px rgba(19,28,38,.55)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--paper-deep)}
+
+/* console */
+.console{
+  background:var(--panel);
+  border:1px solid var(--panel-line);
+  border-radius:12px;
+  box-shadow:0 26px 60px -24px rgba(15,23,34,.55);
+  overflow:hidden;
+  position:relative;
+}
+.console-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:11px 16px;border-bottom:1px solid var(--panel-line);
+}
+.console-bar .title{font-family:var(--mono);font-size:11.5px;color:var(--panel-dim);letter-spacing:.06em}
+.console-bar .lights{display:flex;gap:7px}
+.console-bar .lights span{width:10px;height:10px;border-radius:50%;background:#26323F}
+.console-bar .lights span:first-child{background:#3B4A59}
+.console-body{
+  padding:20px 20px 24px;
+  font-family:var(--mono);font-size:12.8px;line-height:1.85;
+  color:var(--panel-text);
+  min-height:368px;position:relative;
+}
+.cl{display:block;opacity:0;transform:translateY(3px);transition:opacity .3s,transform .3s}
+.cl.show{opacity:1;transform:none}
+.cl .p{color:var(--panel-dim)}
+.cl .claim{color:#E8EEF4;font-weight:500}
+.cl .ev{color:var(--panel-dim);font-style:italic}
+.cl .ok{color:#3FBF8A;font-weight:600}
+.cl .hdr{color:#C99554;letter-spacing:.1em}
+.cursor{display:inline-block;width:8px;height:15px;background:#3FBF8A;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.stamp{
+  position:absolute;right:26px;bottom:26px;
+  width:148px;height:148px;border-radius:50%;
+  border:3px solid var(--bronze);
+  display:flex;align-items:center;justify-content:center;
+  transform:rotate(-12deg) scale(2.2);opacity:0;
+  transition:transform .35s cubic-bezier(.2,1.6,.4,1),opacity .25s;
+  pointer-events:none;
+}
+.stamp.land{transform:rotate(-12deg) scale(1);opacity:1}
+.stamp .inner{
+  width:118px;height:118px;border-radius:50%;border:1.5px solid var(--bronze);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:3px;
+}
+.stamp .word{font-family:var(--display);font-weight:840;font-size:17px;letter-spacing:.08em;color:var(--bronze);text-transform:uppercase}
+.stamp .small{font-family:var(--mono);font-size:8.4px;letter-spacing:.12em;color:var(--bronze);text-transform:uppercase}
+.replay{
+  position:absolute;left:20px;bottom:18px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+  background:none;border:1px solid var(--panel-line);color:var(--panel-dim);
+  padding:7px 14px;border-radius:5px;cursor:pointer;opacity:0;transition:opacity .3s,color .15s,border-color .15s;
+}
+.replay.show{opacity:1}
+.replay:hover{color:var(--panel-text);border-color:var(--panel-dim)}
+
+/* ---------- sections ---------- */
+section{padding:88px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:46px;flex-wrap:wrap}
+.sec-head h2{
+  font-family:var(--display);font-variation-settings:"wdth" 112;font-weight:820;
+  font-size:clamp(30px,3.6vw,46px);text-transform:uppercase;letter-spacing:-.015em;line-height:1.05;margin-top:14px;
+}
+.sec-head .note{font-family:var(--mono);font-size:12px;color:var(--ink-faint);max-width:34ch;text-align:right}
+@media(max-width:720px){.sec-head .note{text-align:left}}
+
+/* filters */
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:34px}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--line);background:transparent;color:var(--ink-soft);
+  padding:8px 16px;border-radius:99px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--ink-soft)}
+.chip.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.chip .n{color:var(--bronze);margin-left:5px}
+.chip.active .n{color:#D9A864}
+
+/* project cards */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+@media(max-width:880px){.grid{grid-template-columns:1fr}}
+.card{
+  border:1px solid var(--line);border-radius:12px;background:#FAFBF9;
+  padding:26px 26px 22px;position:relative;display:flex;flex-direction:column;gap:14px;
+  transition:transform .2s,box-shadow .2s,opacity .3s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(19,28,38,.35)}
+.card.hide{display:none}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.card h3{font-family:var(--display);font-variation-settings:"wdth" 108;font-weight:760;font-size:22px;letter-spacing:-.01em;line-height:1.15}
+.card .domain{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
+.badge{
+  font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 10px;border-radius:4px;white-space:nowrap;flex-shrink:0;
+}
+.badge.v{background:var(--verified-soft);color:var(--verified);border:1px solid color-mix(in srgb,var(--verified) 30%,transparent)}
+.badge.p{background:#F4ECE0;color:var(--bronze-deep);border:1px solid color-mix(in srgb,var(--bronze) 35%,transparent)}
+.card .claim-line{font-size:16.5px;color:var(--ink-soft);line-height:1.55}
+.card .claim-line b{color:var(--ink)}
+.evidence{
+  border-left:2px solid var(--verified);
+  background:var(--verified-soft);
+  border-radius:0 8px 8px 0;
+  padding:13px 16px;
+  display:none;flex-direction:column;gap:8px;
+}
+.card.open .evidence{display:flex}
+.evidence li{
+  list-style:none;font-family:var(--mono);font-size:12.3px;line-height:1.55;color:var(--ink-soft);
+  display:flex;gap:9px;
+}
+.evidence li::before{content:"✓";color:var(--verified);font-weight:600;flex-shrink:0}
+.card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:6px;gap:12px;flex-wrap:wrap}
+.stack{display:flex;gap:6px;flex-wrap:wrap}
+.stack span{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);border:1px solid var(--line);padding:3.5px 9px;border-radius:99px;background:var(--paper)}
+.ev-toggle{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;font-weight:500;
+  background:none;border:none;color:var(--verified);cursor:pointer;padding:6px 0;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.ev-toggle:hover{text-decoration:underline}
+.ev-toggle .arrow{transition:transform .2s;display:inline-block}
+.card.open .ev-toggle .arrow{transform:rotate(90deg)}
+.card a.repo{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line)}
+.card a.repo:hover{color:var(--bronze-deep);border-color:var(--bronze)}
+
+/* ---------- experience log ---------- */
+.xp{background:var(--panel);color:var(--panel-text)}
+.xp .eyebrow{color:#C99554}.xp .eyebrow::before{background:#C99554}
+.xp .sec-head h2{color:#EEF2F5}
+.xp .sec-head .note{color:var(--panel-dim)}
+.log{border:1px solid var(--panel-line);border-radius:12px;overflow:hidden}
+.log-row{
+  display:grid;grid-template-columns:190px 1fr;gap:26px;
+  padding:26px 28px;border-bottom:1px solid var(--panel-line);
+  transition:background .15s;
+}
+.log-row:last-child{border-bottom:none}
+.log-row:hover{background:#141F2D}
+@media(max-width:720px){.log-row{grid-template-columns:1fr;gap:10px;padding:22px 20px}}
+.log-when{font-family:var(--mono);font-size:12px;color:var(--panel-dim);line-height:1.7}
+.log-when .live{color:#3FBF8A}
+.log-what h3{font-family:var(--display);font-variation-settings:"wdth" 106;font-weight:720;font-size:19px;color:#EEF2F5;letter-spacing:0}
+.log-what .org{font-family:var(--mono);font-size:12px;color:#C99554;margin:3px 0 10px}
+.log-what p{font-size:15.5px;color:var(--panel-text);max-width:72ch;line-height:1.65}
+.log-what p b{color:#EEF2F5;font-weight:600}
+
+/* ---------- toolchain ---------- */
+.tools .row{display:grid;grid-template-columns:220px 1fr;gap:26px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.tools .row:first-of-type{border-top:1px solid var(--line)}
+@media(max-width:720px){.tools .row{grid-template-columns:1fr;gap:8px}}
+.tools .cat{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronze-deep);font-weight:600}
+.tools .items{display:flex;gap:8px;flex-wrap:wrap}
+.tools .items span{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);
+  background:#FAFBF9;border:1px solid var(--line);padding:6px 13px;border-radius:6px;
+  transition:all .15s;cursor:default;
+}
+.tools .items span:hover{border-color:var(--bronze);color:var(--ink);transform:translateY(-2px)}
+
+/* ---------- leadership ---------- */
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:880px){.lead-grid{grid-template-columns:1fr}}
+.lead-card{border:1px solid var(--line);border-radius:12px;padding:28px;background:#FAFBF9}
+.lead-card .num{
+  font-family:var(--display);font-variation-settings:"wdth" 115;font-weight:840;font-size:54px;line-height:1;color:var(--bronze);letter-spacing:-.02em;
+}
+.lead-card .num small{font-size:20px;color:var(--ink-faint);font-weight:600}
+.lead-card h3{font-family:var(--display);font-weight:740;font-size:19px;margin:12px 0 4px}
+.lead-card .org{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);margin-bottom:12px}
+.lead-card p{font-size:15.5px;color:var(--ink-soft)}
+
+/* ---------- hire ---------- */
+.hire{position:relative}
+.hire-box{
+  border:1px solid var(--line);border-radius:16px;background:#FAFBF9;
+  padding:64px 56px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;
+  position:relative;overflow:hidden;
+}
+@media(max-width:880px){.hire-box{grid-template-columns:1fr;padding:44px 30px}}
+.hire-box h2{
+  font-family:var(--display);font-variation-settings:"wdth" 112;font-weight:840;
+  font-size:clamp(30px,4vw,50px);text-transform:uppercase;letter-spacing:-.018em;line-height:1.04;margin:16px 0 14px;
+}
+.hire-box h2 em{font-style:normal;color:var(--verified)}
+.hire-box p{color:var(--ink-soft);max-width:48ch;margin-bottom:26px}
+.contact-list{list-style:none;display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper)}
+.contact-list a{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  text-decoration:none;padding:17px 20px;border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:13px;transition:background .15s,padding-left .15s;
+}
+.contact-list li:last-child a{border-bottom:none}
+.contact-list a:hover{background:var(--verified-soft);padding-left:26px}
+.contact-list .k{color:var(--ink-faint);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.contact-list .v{font-weight:500}
+.hire-stamp{
+  position:absolute;top:-34px;right:-34px;width:170px;height:170px;border-radius:50%;
+  border:2.5px dashed var(--bronze);opacity:.28;transform:rotate(14deg);pointer-events:none;
+}
+
+footer{border-top:1px solid var(--line);padding:30px 0 42px}
+.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;color:var(--ink-faint)}
+.foot a{color:var(--ink-soft);text-decoration:none}
+.foot a:hover{color:var(--bronze-deep)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}}
+
+/* ---------- secure gate ---------- */
+body.locked{overflow:hidden}
+#gate{
+  position:fixed;inset:0;z-index:200;
+  background:
+    radial-gradient(1100px 600px at 70% -10%, #16243480 0%, transparent 60%),
+    var(--panel);
+  color:var(--panel-text);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .7s cubic-bezier(.65,0,.2,1),opacity .7s ease;
+}
+#gate.open{transform:translateY(-100%);opacity:0;pointer-events:none}
+#gate::before{
+  content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:linear-gradient(#1A2737 1px,transparent 1px),linear-gradient(90deg,#1A2737 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(closest-side at 50% 45%,black 30%,transparent 100%);
+  -webkit-mask-image:radial-gradient(closest-side at 50% 45%,black 30%,transparent 100%);
+}
+#gate .scanline{
+  position:absolute;left:0;right:0;height:2px;top:0;
+  background:linear-gradient(90deg,transparent,#3FBF8A99,transparent);
+  animation:scan 5.5s linear infinite;pointer-events:none;opacity:.5;
+}
+@keyframes scan{0%{top:-2px}100%{top:100%}}
+.gate-inner{
+  position:relative;width:min(560px,92vw);
+  border:1px solid var(--panel-line);border-radius:14px;
+  background:#0C131CEE;backdrop-filter:blur(4px);
+  padding:30px 32px 34px;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.7);
+}
+.gate-head{
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:#C99554;border-bottom:1px solid var(--panel-line);padding-bottom:14px;margin-bottom:18px;
+}
+.gate-head .lock{color:var(--panel-dim)}
+.gate-boot{
+  font-family:var(--mono);font-size:12.5px;line-height:1.9;min-height:150px;color:var(--panel-text);
+}
+.gate-boot .dim{color:var(--panel-dim)}
+.gate-boot .ok{color:#3FBF8A}
+.gate-boot .amber{color:#C99554}
+.gate-action{display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:10px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
+.gate-action.show{opacity:1;transform:none}
+.seal{
+  --p:0;
+  position:relative;width:138px;height:138px;border-radius:50%;
+  background:
+    conic-gradient(#3FBF8A calc(var(--p)*1%), #243140 0),
+    #0F1722;
+  display:flex;align-items:center;justify-content:center;
+  border:none;cursor:pointer;padding:0;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:none;
+}
+.seal::before{
+  content:"";position:absolute;inset:-10px;border-radius:50%;
+  border:1.5px dashed #2C3B4C;
+  animation:spin 14s linear infinite;
+}
+.seal.holding::before{border-color:#3FBF8A88;animation-duration:3.5s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.seal-core{
+  width:118px;height:118px;border-radius:50%;background:#101B29;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  transition:background .2s;
+}
+.seal.holding .seal-core{background:#13243010}
+.seal-core svg{width:38px;height:38px;stroke:#3FBF8A;fill:none;stroke-width:1.6;stroke-linecap:round}
+.seal-core .lbl{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--panel-dim);text-transform:uppercase}
+.seal.holding .seal-core .lbl{color:#3FBF8A}
+.gate-status{font-family:var(--mono);font-size:12px;color:var(--panel-dim);min-height:18px;text-align:center}
+.gate-status .pct{color:#3FBF8A;font-weight:600}
+.gate-hint{font-family:var(--mono);font-size:10.5px;color:#42536600;color:var(--panel-dim);opacity:.7;text-align:center}
+.gate-skip{
+  position:absolute;right:18px;bottom:14px;
+  background:none;border:none;cursor:pointer;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--panel-dim);
+  padding:6px 4px;
+}
+.gate-skip:hover{color:var(--panel-text);text-decoration:underline}
+.gate-granted{
+  position:absolute;inset:0;border-radius:14px;
+  background:#0C131CF5;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  opacity:0;pointer-events:none;transition:opacity .35s;
+}
+.gate-granted.show{opacity:1}
+.gate-granted .big{
+  font-family:var(--display);font-variation-settings:"wdth" 115;font-weight:840;
+  font-size:clamp(26px,5vw,40px);letter-spacing:.06em;color:#3FBF8A;text-transform:uppercase;
+  border:3px solid #3FBF8A;border-radius:8px;padding:10px 26px;transform:rotate(-3deg);
+  animation:stampIn .4s cubic-bezier(.2,1.6,.4,1)}
+@keyframes stampIn{from{transform:rotate(-3deg) scale(1.9);opacity:0}to{transform:rotate(-3deg) scale(1);opacity:1}}
+.gate-granted .sub{font-family:var(--mono);font-size:11.5px;color:var(--panel-dim);letter-spacing:.08em}
+@media (prefers-reduced-motion: reduce){
+  #gate .scanline,.seal::before{animation:none}
+}
+</style>
+</head>
+<body class="locked">
+
+<div id="gate" role="dialog" aria-modal="true" aria-label="Secure entry verification">
+  <div class="scanline" aria-hidden="true"></div>
+  <div class="gate-inner">
+    <div class="gate-head">
+      <span>Attest Secure Gateway · v2.6</span>
+      <span class="lock">⬡ sandboxed session</span>
+    </div>
+    <div class="gate-boot" id="gateBoot" aria-live="polite"></div>
+    <div class="gate-action" id="gateAction">
+      <button class="seal" id="sealBtn" type="button" aria-label="Press and hold to verify and enter">
+        <span class="seal-core">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3l7 3v5c0 4.4-3 8.4-7 9.5C8 19.4 5 15.4 5 11V6l7-3z"/>
+            <path d="M9 11.5l2 2 4-4.5"/>
+          </svg>
+          <span class="lbl">Hold to verify</span>
+        </span>
+      </button>
+      <div class="gate-status" id="gateStatus">awaiting visitor input <span class="pct">0%</span></div>
+      <p class="gate-hint">press &amp; hold the seal — or hold Enter — until the scan completes</p>
+    </div>
+    <div class="gate-granted" id="gateGranted" aria-hidden="true">
+      <span class="big">Access Granted</span>
+      <span class="sub">welcome, reviewer — opening the ledger…</span>
+    </div>
+    <button class="gate-skip" id="gateSkip" type="button">skip verification →</button>
+  </div>
+</div>
+
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">krishnansh<b>@verified</b>:~$</a>
+    <ul class="nav-links">
+      <li><a href="#work">work</a></li>
+      <li><a href="#experience">experience</a></li>
+      <li><a href="#toolchain">toolchain</a></li>
+      <li><a href="#leadership">leadership</a></li>
+      <li><a href="#hire">hire</a></li>
+    </ul>
+    <span class="status-pill"><span class="dot"></span>Open to AI/ML roles · Class of 2027</span>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Krishnansh Sood · AI/ML + FinTech Engineer · BITS Pilani</span>
+      <h1><span class="strike">Trust me,</span><br>it works. <span class="verify">Verify</span> that it does.</h1>
+      <p class="lede">I build systems that <b>prove their own claims</b> — an LLM pipeline that won't report a vulnerability without a reproduced exploit, extractors that cite their sources, and features shipped into campus apps that 3,000+ students rely on daily.</p>
+      <p class="sub">// currently: Home Lending Technology @ Wells Fargo · security research under Prof. G.S. Chalapathi</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#work">Inspect the evidence ↓</a>
+        <a class="btn btn-ghost" href="#hire">Hire me</a>
+      </div>
+    </div>
+
+    <div class="console" aria-label="Animated verification console">
+      <div class="console-bar">
+        <span class="title">attest --candidate krishnansh_sood</span>
+        <span class="lights"><span></span><span></span><span></span></span>
+      </div>
+      <div class="console-body" id="consoleBody" aria-live="polite"></div>
+      <div class="stamp" id="stamp" aria-hidden="true">
+        <div class="inner">
+          <span class="small">host-observed</span>
+          <span class="word">Certified</span>
+          <span class="small">zero false claims</span>
+        </div>
+      </div>
+      <button class="replay" id="replayBtn" type="button">↻ rerun verification</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Exhibits A–F</span>
+        <h2>Verified work</h2>
+      </div>
+      <p class="note">Every card states a claim, then shows the evidence. No evidence, no card.</p>
+    </div>
+    <div class="filters reveal" role="group" aria-label="Filter projects by domain" id="filters"></div>
+    <div class="grid" id="projectGrid"></div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="xp" id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Audit log</span>
+        <h2>Experience</h2>
+      </div>
+      <p class="note">Append-only. Each entry shipped something a team depends on.</p>
+    </div>
+    <div class="log reveal">
+      <div class="log-row">
+        <div class="log-when">2026-05 → <span class="live">present</span></div>
+        <div class="log-what">
+          <h3>Technology Program Intern</h3>
+          <p class="org">Wells Fargo — Home Lending Technology</p>
+          <p>Built and demoed a <b>Python + Playwright migration POC</b> to the US team — automated asset extraction, bulk upload, and programmatic HTML image-URL remapping across platforms. Operating a prompt-chaining pipeline that compresses <b>roughly a sprint of SOAP→REST migration work into ~2.5 hours</b>, and modernizing Jenkins CI/CD pipelines off a legacy framework.</p>
+        </div>
+      </div>
+      <div class="log-row">
+        <div class="log-when">2025-05 → 2025-07</div>
+        <div class="log-what">
+          <h3>Applied AI Intern</h3>
+          <p class="org">SilverTouch Technologies — Information Extraction</p>
+          <p>Benchmarked classical NLP/NER baselines first, then shipped an <b>LLM pipeline (llama3, structured prompting)</b> that turns inconsistent legal documents into structured JSON. Also engineered a Selenium scraper that collected <b>~3,000 FDA drug records (2002–2023)</b> into clean datasets for in-house model training.</p>
+        </div>
+      </div>
+      <div class="log-row">
+        <div class="log-when">2025 → present</div>
+        <div class="log-what">
+          <h3>Security Research — Attest</h3>
+          <p class="org">EEE F266 Study-Oriented Project · advised by Prof. G.S. Chalapathi</p>
+          <p>Independent research building an <b>execution-grounded LLM vulnerability certification pipeline</b>. Phase 1 passing end-to-end for CWE-78, with a research paper drafted and broader benchmark evaluation underway.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOOLCHAIN ================= -->
+<section class="tools" id="toolchain">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Manifest</span>
+        <h2>Toolchain</h2>
+      </div>
+      <p class="note">From silicon to system prompt — I work the full stack of trust.</p>
+    </div>
+    <div class="reveal">
+      <div class="row"><span class="cat">Languages</span><div class="items"><span>Python</span><span>SQL</span><span>C/C++</span><span>JavaScript</span><span>Dart</span><span>Verilog</span><span>VHDL</span></div></div>
+      <div class="row"><span class="cat">AI / ML</span><div class="items"><span>LLM agent orchestration</span><span>RAG</span><span>Multi-agent systems</span><span>AI trustworthiness &amp; evals</span><span>Anti-reward-hacking</span><span>NLP</span><span>Speech-to-text</span><span>Embeddings</span><span>Vector DBs</span></div></div>
+      <div class="row"><span class="cat">Frameworks &amp; Tools</span><div class="items"><span>LangChain</span><span>PyTorch</span><span>FastAPI</span><span>Whisper</span><span>Docker</span><span>CodeQL / SARIF</span><span>Playwright</span><span>Selenium</span><span>Git</span><span>Firebase</span></div></div>
+      <div class="row"><span class="cat">LLM Providers</span><div class="items"><span>Anthropic Claude API</span><span>OpenAI</span><span>Google Gemini</span><span>Ollama</span><span>FAISS</span><span>pydantic</span><span>pytest</span></div></div>
+      <div class="row"><span class="cat">Hardware</span><div class="items"><span>Xilinx Vivado</span><span>Zynq SoC</span><span>FPGA / digital design</span><span>AXI</span><span>Microprocessors &amp; interfacing</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEADERSHIP ================= -->
+<section id="leadership">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Scale beyond self</span>
+        <h2>Leadership</h2>
+      </div>
+      <p class="note">Code review scales linearly. People scale teams.</p>
+    </div>
+    <div class="lead-grid">
+      <div class="lead-card reveal">
+        <div class="num">16<small> devs</small></div>
+        <h3>Joint Project Coordinator</h3>
+        <p class="org">Students' Union Technical Team, BITS Pilani · Jul 2025 → present</p>
+        <p>Leading app, UI/UX, and backend sub-teams to ship and maintain campus software used daily by 3,000+ students — planning, task allocation, and cross-team integration against hard academic deadlines.</p>
+      </div>
+      <div class="lead-card reveal">
+        <div class="num">20<small> devs</small></div>
+        <h3>Dev Team Lead</h3>
+        <p class="org">Kalipatnapu AR/VR Lab (KXR), BITS Pilani · Aug 2025 → May 2026</p>
+        <p>Led a 20-member team and built an AR campus-navigation system that guides users across campus with geolocated images and on-screen directional arrows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HIRE ================= -->
+<section class="hire" id="hire">
+  <div class="wrap">
+    <div class="hire-box reveal">
+      <div class="hire-stamp"></div>
+      <div>
+        <span class="eyebrow">Final exhibit</span>
+        <h2>The next claim worth verifying is <em>your team + me</em>.</h2>
+        <p>I'm targeting AI/ML engineering roles — especially where FinTech, trust, and evaluation meet. If your systems need to be right, not just plausible, let's talk.</p>
+        <a class="btn btn-primary" href="mailto:Krishnansh.sood@gmail.com?subject=Let's%20verify%20a%20fit">Start the conversation →</a>
+      </div>
+      <ul class="contact-list">
+        <li><a href="mailto:Krishnansh.sood@gmail.com"><span class="k">email</span><span class="v">Krishnansh.sood@gmail.com</span></a></li>
+        <li><a href="mailto:f20230379@pilani.bits-pilani.ac.in"><span class="k">college mail</span><span class="v">f20230379@pilani.bits-pilani.ac.in</span></a></li>
+        <li><a href="https://linkedin.com/in/krishnansh-sood" target="_blank" rel="noopener"><span class="k">linkedin</span><span class="v">/in/krishnansh-sood</span></a></li>
+        <li><a href="https://github.com/KrishnanshSood" target="_blank" rel="noopener"><span class="k">github</span><span class="v">@KrishnanshSood</span></a></li>
+        <li><a href="tel:+917303928957"><span class="k">phone</span><span class="v">+91 73039 28957</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Krishnansh Sood · BITS Pilani · designed as a verification ledger</span>
+    <span>exit code: <a href="#top">0 — return to top ↑</a></span>
+  </div>
+</footer>
+
+<script>
+/* ============ data ============ */
+const projects = [
+  {
+    title:"Attest", domain:"Security × AI Research", tags:["ai","security"],
+    badge:{t:"VERIFIED · ACTIVE RESEARCH", c:"v"},
+    claim:"An LLM shouldn't get to <b>say</b> code is vulnerable — it should have to <b>prove it</b>. Attest certifies a flaw only after an agent auto-generates a working exploit and reproduces it in an isolated Docker sandbox.",
+    evidence:[
+      "End-to-end pipeline passing for CWE-78 (OS command injection, Java)",
+      "Tamper-evident oracle accepts only host-observed execution evidence — never the LLM's self-report",
+      "Zero false positives across test runs; directly counters agent reward-hacking",
+      "CodeQL/SARIF taint-flow parsing → program slicing → cost-aware LLM triage cascade"
+    ],
+    stack:["Python","Claude API","CodeQL/SARIF","Docker","tree-sitter"],
+    link:"https://github.com/KrishnanshSood"
+  },
+  {
+    title:"Fingpt-Agents", domain:"AI × FinTech", tags:["ai","fintech"],
+    badge:{t:"VERIFIED", c:"v"},
+    claim:"Financial RAG without sending a single SEC filing to the cloud — <b>four specialized agents</b> running fully local, answering questions over multi-year 10-Ks.",
+    evidence:[
+      "100% on-device: llama3 via Ollama + FAISS — zero external API cost",
+      "Ingestion / processing / RAG / insights agents behind one controller",
+      "Handles 100+ page filings with Tesseract OCR fallback for scanned pages",
+      "Indexed multi-year filings for Apple, Microsoft, and Google"
+    ],
+    stack:["Python","LangChain","Ollama","FAISS","Tesseract"],
+    link:"https://github.com/KrishnanshSood"
+  },
+  {
+    title:"Invoice Extractor", domain:"AI × FinTech", tags:["ai","fintech"],
+    badge:{t:"VERIFIED", c:"v"},
+    claim:"An accounts-payable trust gate: every extracted field carries a <b>source-grounded 0–1 confidence score</b>, and a second agent has to back it with a quote from the document.",
+    evidence:[
+      "Two-agent design: extractor + verifier with strict separation",
+      "Non-zero confidence requires a supporting source quote — hallucination has nowhere to hide",
+      "Minimum-confidence aggregation routes risky invoices to human review",
+      "Pydantic v2 validation, auto-retry on malformed output, Decimal-safe currency, temperature-0"
+    ],
+    stack:["Python","OpenAI API","Pydantic v2","pdfplumber"],
+    link:"https://github.com/KrishnanshSood"
+  },
+  {
+    title:"FPGA-Based HFT System", domain:"Hardware × FinTech", tags:["hardware","fintech"],
+    badge:{t:"PROTOTYPE · PAPER IN PROGRESS", c:"p"},
+    claim:"When microseconds are money, software is too slow. I built the <b>Ethernet connectivity and PS–PL data path</b> for a hardware trading system on a Xilinx Zynq SoC.",
+    evidence:[
+      "AXI Ethernet bring-up connecting the board to the network",
+      "PS–PL interface letting the ARM core exchange data with the programmable-logic trading pipeline",
+      "Working hardware prototype delivered within a 20-person team",
+      "Developed in Verilog + VHDL on the Vivado toolchain"
+    ],
+    stack:["Xilinx Vivado","Zynq SoC","Verilog","VHDL","AXI"],
+    link:null
+  },
+  {
+    title:"Campus Apps — SU App · StudyDeck · BOSM", domain:"App Dev × Product", tags:["product"],
+    badge:{t:"IN PRODUCTION · TEAM PROJECT", c:"v"},
+    claim:"Joined an app ecosystem that <b>3,000+ students already depended on</b> — and shipped UI and app-dev features into it without breaking what worked. Now I coordinate the team that builds it.",
+    evidence:[
+      "Built and shipped app features (UI / app dev) into live production apps maintained by the SU Technical Team",
+      "Platform context: serves 3,000+ students; processes ~$0.5M (INR 41M+) per semester via QR/UPI through campus billing",
+      "Fest app: 3,200+ installs with registration, ticketing, and in-app payments",
+      "Progressed from contributor to Joint Project Coordinator — now leading the 16-dev team behind these apps"
+    ],
+    stack:["App dev","UI","Flutter/Dart","Firebase"],
+    link:null
+  },
+  {
+    title:"AI Educator Assistant", domain:"AI × EdTech", tags:["ai","product"],
+    badge:{t:"FINALIST · TOP ~12 TEAMS", c:"v"},
+    claim:"Drop in a lecture recording, get back <b>summaries, quizzes, flashcards, and translations</b> — one async pipeline from raw audio to study material.",
+    evidence:[
+      "FastAPI async pipeline: ffmpeg → Whisper → chunking → generation",
+      "Pluggable OpenAI / Gemini backend",
+      "Handles lectures, slides, and PDFs end-to-end",
+      "UpGrad AI Hackathon finalist — top ~12 teams nationally"
+    ],
+    stack:["FastAPI","Whisper","OpenAI","Gemini","ffmpeg"],
+    link:"https://github.com/KrishnanshSood"
+  }
+];
+
+const domains = [
+  {id:"all", label:"All exhibits"},
+  {id:"ai", label:"AI / ML"},
+  {id:"fintech", label:"FinTech"},
+  {id:"security", label:"Security"},
+  {id:"hardware", label:"Hardware"},
+  {id:"product", label:"Product"}
+];
+
+/* ============ render projects ============ */
+const grid = document.getElementById("projectGrid");
+projects.forEach((p,i)=>{
+  const card = document.createElement("article");
+  card.className = "card reveal";
+  card.dataset.tags = p.tags.join(" ");
+  card.innerHTML = `
+    <div class="card-top">
+      <div>
+        <div class="domain">${p.domain}</div>
+        <h3>${p.title}</h3>
+      </div>
+      <span class="badge ${p.badge.c}">${p.badge.t}</span>
+    </div>
+    <p class="claim-line">${p.claim}</p>
+    <ul class="evidence">${p.evidence.map(e=>`<li>${e}</li>`).join("")}</ul>
+    <button class="ev-toggle" type="button" aria-expanded="false"><span class="arrow">▸</span> <span class="lbl">Show evidence (${p.evidence.length})</span></button>
+    <div class="card-foot">
+      <div class="stack">${p.stack.map(s=>`<span>${s}</span>`).join("")}</div>
+      ${p.link?`<a class="repo" href="${p.link}" target="_blank" rel="noopener">github ↗</a>`:""}
+    </div>`;
+  const btn = card.querySelector(".ev-toggle");
+  btn.addEventListener("click",()=>{
+    const open = card.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open);
+    btn.querySelector(".lbl").textContent = open ? "Hide evidence" : `Show evidence (${p.evidence.length})`;
+  });
+  grid.appendChild(card);
+});
+
+/* ============ filters ============ */
+const filterBox = document.getElementById("filters");
+domains.forEach(d=>{
+  const count = d.id==="all" ? projects.length : projects.filter(p=>p.tags.includes(d.id)).length;
+  const b = document.createElement("button");
+  b.className = "chip" + (d.id==="all" ? " active" : "");
+  b.type = "button";
+  b.innerHTML = `${d.label}<span class="n">${count}</span>`;
+  b.addEventListener("click",()=>{
+    filterBox.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+    b.classList.add("active");
+    grid.querySelectorAll(".card").forEach(card=>{
+      const show = d.id==="all" || card.dataset.tags.split(" ").includes(d.id);
+      card.classList.toggle("hide", !show);
+    });
+  });
+  filterBox.appendChild(b);
+});
+
+/* ============ scroll reveal ============ */
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(!reduceMotion){
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+}else{
+  document.querySelectorAll(".reveal").forEach(el=>el.classList.add("in"));
+}
+
+/* ============ verification console ============ */
+const consoleBody = document.getElementById("consoleBody");
+const stamp = document.getElementById("stamp");
+const replayBtn = document.getElementById("replayBtn");
+
+const script = [
+  {h:"$ attest --candidate krishnansh_sood --mode host-observed"},
+  {gap:380},
+  {claim:"ships to production", ev:"UI features in campus apps · 3,000+ daily users"},
+  {claim:"builds trustworthy AI", ev:"exploit reproduced in sandbox · 0 false positives"},
+  {claim:"works from silicon up", ev:"FPGA HFT prototype · AXI / PS–PL data path"},
+  {claim:"leads under deadline", ev:"16-dev campus team · 20-dev AR/VR lab team"},
+  {claim:"is enterprise-tested", ev:"Wells Fargo POC demoed to US team"},
+  {gap:420},
+  {h:"VERDICT: all claims grounded in execution evidence."},
+  {stamp:true}
+];
+
+let running = false;
+async function runConsole(){
+  if(running) return;
+  running = true;
+  consoleBody.innerHTML = "";
+  stamp.classList.remove("land");
+  replayBtn.classList.remove("show");
+  const wait = ms => new Promise(r=>setTimeout(r, reduceMotion ? 0 : ms));
+
+  for(const step of script){
+    if(step.gap){ await wait(step.gap); continue; }
+    if(step.stamp){
+      await wait(500);
+      stamp.classList.add("land");
+      await wait(450);
+      replayBtn.classList.add("show");
+      continue;
+    }
+    const line = document.createElement("span");
+    line.className = "cl";
+    if(step.h){
+      line.innerHTML = `<span class="hdr">${step.h}</span>`;
+      consoleBody.appendChild(line);
+      requestAnimationFrame(()=>line.classList.add("show"));
+      await wait(520);
+    }else{
+      line.innerHTML = `<span class="p">checking:</span> <span class="claim">"${step.claim}"</span>`;
+      consoleBody.appendChild(line);
+      requestAnimationFrame(()=>line.classList.add("show"));
+      await wait(620);
+      const evLine = document.createElement("span");
+      evLine.className = "cl";
+      evLine.innerHTML = `&nbsp;&nbsp;<span class="ev">evidence → ${step.ev}</span> <span class="ok">✓ VERIFIED</span>`;
+      consoleBody.appendChild(evLine);
+      requestAnimationFrame(()=>evLine.classList.add("show"));
+      await wait(560);
+    }
+  }
+  running = false;
+}
+replayBtn.addEventListener("click", runConsole);
+
+/* ============ in-page navigation (fixes hash links opening new tabs in sandboxed previews) ============ */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener("click", e=>{
+    const target = document.querySelector(a.getAttribute("href"));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior: reduceMotion ? "auto" : "smooth"});
+    }
+  });
+});
+
+/* ============ secure gate ============ */
+(function(){
+  const gate = document.getElementById("gate");
+  const boot = document.getElementById("gateBoot");
+  const action = document.getElementById("gateAction");
+  const seal = document.getElementById("sealBtn");
+  const statusEl = document.getElementById("gateStatus");
+  const granted = document.getElementById("gateGranted");
+  const skip = document.getElementById("gateSkip");
+
+  const bootLines = [
+    '<span class="amber">$ attest --gateway --visitor anonymous</span>',
+    '<span class="dim">initializing isolated sandbox…</span> <span class="ok">ok</span>',
+    '<span class="dim">loading provenance chain</span> [krishnansh_sood] <span class="ok">ok</span>',
+    '<span class="dim">integrity check: portfolio claims vs. evidence…</span> <span class="ok">0 mismatches</span>',
+    '<span class="amber">⚠ visitor verification required to open the ledger.</span>'
+  ];
+
+  function openGate(){
+    granted.classList.add("show");
+    granted.setAttribute("aria-hidden","false");
+    setTimeout(()=>{
+      gate.classList.add("open");
+      document.body.classList.remove("locked");
+      setTimeout(()=>{ gate.remove(); runConsole(); }, reduceMotion ? 0 : 720);
+    }, reduceMotion ? 150 : 1050);
+  }
+  skip.addEventListener("click", openGate);
+
+  if(reduceMotion){
+    boot.innerHTML = bootLines.join("<br>");
+    action.classList.add("show");
+  }else{
+    let i = 0;
+    (function nextLine(){
+      if(i < bootLines.length){
+        const div = document.createElement("div");
+        div.innerHTML = bootLines[i++];
+        boot.appendChild(div);
+        setTimeout(nextLine, 430);
+      }else{
+        setTimeout(()=>action.classList.add("show"), 250);
+      }
+    })();
+  }
+
+  /* hold-to-verify */
+  let progress = 0, holding = false, done = false, raf;
+  const phases = [
+    [0,  "scanning visitor…"],
+    [30, "checking intent: hiring signal detected…"],
+    [60, "no reward-hacking found…"],
+    [85, "constructing witness…"]
+  ];
+  function statusFor(p){
+    let msg = phases[0][1];
+    for(const [t,m] of phases){ if(p >= t) msg = m; }
+    return msg;
+  }
+  function tick(){
+    if(done) return;
+    progress += holding ? (reduceMotion ? 100 : 1.05) : -1.6;
+    progress = Math.max(0, Math.min(100, progress));
+    seal.style.setProperty("--p", progress);
+    statusEl.innerHTML = (progress > 0 ? statusFor(progress) : "awaiting visitor input") +
+      ' <span class="pct">' + Math.round(progress) + "%</span>";
+    if(progress >= 100){
+      done = true;
+      seal.classList.remove("holding");
+      statusEl.innerHTML = 'verification complete <span class="pct">100%</span>';
+      openGate();
+      return;
+    }
+    if(holding || progress > 0) raf = requestAnimationFrame(tick);
+  }
+  function startHold(e){
+    if(done) return;
+    if(e) e.preventDefault();
+    if(holding) return;
+    holding = true;
+    seal.classList.add("holding");
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(tick);
+  }
+  function endHold(){
+    if(done) return;
+    holding = false;
+    seal.classList.remove("holding");
+  }
+  seal.addEventListener("pointerdown", startHold);
+  window.addEventListener("pointerup", endHold);
+  window.addEventListener("pointercancel", endHold);
+  seal.addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" ") startHold(e); });
+  seal.addEventListener("keyup",   e=>{ if(e.key==="Enter"||e.key===" ") endHold(); });
+})();
+
+</script>
+</body>
+</html>
